@@ -1,64 +1,35 @@
-import React from 'react';
-import classNames from 'classnames';
-import moment from 'moment';
+import React from "react";
 import "./WeatherBox.css";
-import { ReactComponent as Thunderstorm } from '../Images/storm.svg'
-import { ReactComponent as Cloudy } from '../Images/cloud.svg'
-import { ReactComponent as Raining } from '../Images/rainy.svg'
-import { ReactComponent as Snowy } from '../Images/snowy.svg'
-import { ReactComponent as Sunny } from '../Images/sun.svg'
-import { numberToDow } from '../App';
+import { Forecastday } from "../ThreeDayApiResponse";
+import { dayToName } from "../Helpers";
 
 interface Props {
-    day: string;
-    date: string;
-    highTemp: number;
-    lowTemp: number;
-    weather: Weather;
-}
-
-export enum Weather {
-    Raining = 1,
-    Sunny,
-    Snowing,
-    Cloudy,
-    Thunderstorm,
+  day: Forecastday;
+  openModalWithDay: (day: Forecastday) => void;
 }
 
 export class WeatherBox extends React.Component<Props, object> {
-
-    displayWeather() {
-        switch(this.props.weather) {
-            case Weather.Raining: {
-                return <Raining />;
-            }
-            case Weather.Sunny: {
-                return <Sunny />;
-            }
-            case Weather.Snowing: {
-                return <Snowy />;
-            }
-            case Weather.Cloudy: {
-                return <Cloudy />;
-            }
-            case Weather.Thunderstorm: {
-                return <Thunderstorm />;
-            }
-        }
-    }
-
-    render () {
-        let nextTwoDays = numberToDow(moment().day()+1) === this.props.day ||
-                          numberToDow(moment().day()) === this.props.day;
-        let isTodayClassName = classNames('weatherBox', {'todaysWeatherBox': nextTwoDays, });
-        return (
-            <div className={isTodayClassName}>
-                <div>{this.props.day}</div>
-                <div>{this.props.date}</div>
-                {this.displayWeather()}
-                <div>{this.props.highTemp.toFixed(1)} High</div>
-                <div>{this.props.lowTemp.toFixed(1)} Low</div>
-            </div>
-        );
-    }
+  render() {
+    const javascriptDate: Date = new Date(this.props.day.date);
+    const dayName = dayToName(javascriptDate.getDay());
+    const dayIcon = this.props.day.day.condition.icon;
+    return (
+      <div
+        className={"WeatherBox"}
+        onClick={() => this.props.openModalWithDay(this.props.day)}
+      >
+        <div className={"WeatherBoxHeader"}>
+          <div>{dayName}</div>
+          <div>{javascriptDate.toDateString()}</div>
+        </div>
+        <div className={"WeatherBoxPicture"}>
+          <img src={dayIcon} alt="new" />
+        </div>
+        <div className={"WeatherBoxFooter"}>
+          <div>{this.props.day.day.maxtemp_f} High</div>
+          <div>{this.props.day.day.mintemp_f} Low</div>
+        </div>
+      </div>
+    );
+  }
 }

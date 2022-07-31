@@ -1,29 +1,72 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: lightblue;
 }
 
-.App-link {
-  color: #09d3ac;
+.DialogDailyRateGraphContainer {
+  width: 100%;
+  height: 200px;
+}
+
+.DialogHourListItemCollapse {
+  height: 100px;
+  width: 100%;
+}
+
+.DialogHourListItemCollapseRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.DialogHourListItemCollapseColumn {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.DialogHourListItemCollapseItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.FullLocationContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.LocationHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.LocationHeaderContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.WeatherBoxMainPanel {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
 }
 
 .WeatherBoxContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; 
-  width: 90%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.WeatherDayDialog {
+  width: 50%;
+  height: 50%;
 }

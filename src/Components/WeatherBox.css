@@ -1,17 +1,38 @@
-.weatherBox {
-   width: 10%;
-   height: 10%;
-   background-color: white;
-   color: black;
-   border: 1px black solid;
-   font-size: 18px;
-   display: flex;
-   flex-direction: column;
-   font-weight: 550;
-   padding: 10px;
-   border-radius: 10px
+.WeatherBox {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 550;
+  flex-grow: 1;
+  margin: 30px;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.todaysWeatherBox {
-   background: lightblue;
+.WeatherBox:hover {
+  border: 1px black solid;
+}
+
+.WeatherBoxPicture > img {
+  width: 125px;
+  height: 125px;
+}
+
+.WeatherBoxHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.WeatherBoxFooter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
