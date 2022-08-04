@@ -12,6 +12,7 @@ export const LocationSearchBar = (props: LocationSearchBarProps) => {
   const handleEnterPress = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === "Enter" && currentSearch !== "") {
       props.setLocationHandler(currentSearch);
+      setCurrentSearch("");
     }
   };
 
@@ -21,6 +22,7 @@ export const LocationSearchBar = (props: LocationSearchBarProps) => {
         id="LocationSearchBar"
         label="Location"
         type={"search"}
+        value={currentSearch}
         onChange={(event) => setCurrentSearch(event.target.value)}
         onKeyDown={handleEnterPress}
       />
