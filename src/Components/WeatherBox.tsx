@@ -5,7 +5,7 @@ import { dayToName } from "../Helpers";
 
 interface Props {
   day: Forecastday;
-  openModalWithDay: (day: Forecastday) => void;
+  openDialogWithDay: (day: Forecastday) => void;
 }
 
 export class WeatherBox extends React.Component<Props, object> {
@@ -16,7 +16,7 @@ export class WeatherBox extends React.Component<Props, object> {
     return (
       <div
         className={"WeatherBox"}
-        onClick={() => this.props.openModalWithDay(this.props.day)}
+        onClick={() => this.props.openDialogWithDay(this.props.day)}
       >
         <div className={"WeatherBoxHeader"}>
           <div>{dayName}</div>

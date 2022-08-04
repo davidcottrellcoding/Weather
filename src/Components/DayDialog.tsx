@@ -34,7 +34,7 @@ import "./DayDialog.css";
 type MyProps = {
   selectedDay: Forecastday | null;
   dialogOpen: boolean;
-  closeModal: () => void;
+  closeDialog: () => void;
 };
 
 type MyState = {
@@ -169,7 +169,7 @@ export class DayDialog extends React.Component<MyProps, MyState> {
     return (
       <Dialog
         open={this.props.dialogOpen}
-        onClose={this.props.closeModal}
+        onClose={this.props.closeDialog}
         fullWidth={true}
         maxWidth={"md"}
       >

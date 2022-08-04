@@ -57,12 +57,12 @@ class App extends React.Component<{}, myState> {
     }
   }
 
-  openModal = (day: Forecastday) => {
+  openDialog = (day: Forecastday) => {
     this.setState({ dialogOpen: true });
     this.setState({ selectedDay: day });
   };
 
-  closeModal = () => {
+  closeDialog = () => {
     this.setState({ dialogOpen: false });
   };
 
@@ -71,7 +71,7 @@ class App extends React.Component<{}, myState> {
   };
 
   renderWeatherBox(day: Forecastday) {
-    return <WeatherBox day={day} openModalWithDay={this.openModal} />;
+    return <WeatherBox day={day} openDialogWithDay={this.openDialog} />;
   }
 
   render() {
@@ -99,7 +99,7 @@ class App extends React.Component<{}, myState> {
           <DayDialog
             selectedDay={this.state.selectedDay}
             dialogOpen={this.state.dialogOpen}
-            closeModal={this.closeModal}
+            closeDialog={this.closeDialog}
           />
         }
       </div>
