@@ -1,0 +1,29 @@
+.DialogDailyRateGraphContainer {
+  width: 100%;
+  height: 200px;
+}
+
+.DialogHourListItemCollapse {
+  height: 100px;
+  width: 100%;
+}
+
+.DialogHourListItemCollapseRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.DialogHourListItemCollapseColumn {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.DialogHourListItemCollapseItem {
+  display: flex;
+  flex-direction: column;
+}
